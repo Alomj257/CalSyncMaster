@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700&family=Poppins&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <title>CalSyncMaster</title>
+</head>
+
+<body>
+    <div class="container" id="mainPage">
+        <div class="header">
+            <a href="#" id="privacyLink">Privacy policy</a>
+            <h1>CalSyncMaster</h1>
+        </div>
+        <div class="login">
+            <!-- <h2>Sign up to start</h2> -->
+            <button id="login">
+                <img src="./asssets/google.png" alt="google" style="height: 23px; width: 23px; vertical-align: middle;">
+                <span style="vertical-align: middle; font-size: 18px;">Login with google</span>
+            </button>
+            <button class="logout-button" id="logout">
+                <img src="./asssets/power-off.png" alt="google" style="height: 20px; width: 20px; vertical-align: middle;">
+                <span style="vertical-align: middle;">Logout</span>
+            </button>
+            
+        </div>
+        <!-- <div id="loggedInOptions">
+            <h2>Sign up to start</h2>
+            <button id="logout">
+                <img src="./asssets/google.png" alt="google">
+                Sign Out
+            </button>
+        </div> -->
+        <form id="calculateForm">
+            <label for="from">
+                <h2>Calculate from:</h2>
+            </label>
+            <div class="from">
+                <div class="custom-date-picker picker-date-from">
+                    <input type="text" id="from" readonly placeholder="mm.dd.yyyy">
+                    <img src="./asssets/icon-input.png" alt="icon-input"
+                        style="position: absolute; right: 6px; top: 49%; transform: translateY(-50%);"
+                        id="input-date-from" class="icon-input">
+                    <div class="calendar">
+                        <div class="date-picker-header">
+                            <div class="month-year-display">
+                                <div class="month-selector">
+                                    <button id="prevMonthBtn"><img src="./asssets/arrow-left.png"
+                                            alt="arrow-left"></button>
+                                    <select id="monthSelector">
+                                        <option value="0">January</option>
+                                        <option value="1">February</option>
+                                        <option value="2">March</option>
+                                        <option value="3">April</option>
+                                        <option value="4">May</option>
+                                        <option value="5">June</option>
+                                        <option value="6">July</option>
+                                        <option value="7">August</option>
+                                        <option value="8">September</option>
+                                        <option value="9">October</option>
+                                        <option value="10">November</option>
+                                        <option value="11">December</option>
+                                    </select>
+                                    <button id="nextMonthBtn"><img src="./asssets/arrow-right.png"
+                                            alt="arrow-right.png"></button>
+                                </div>
+
+                                <div class="year-selector">
+                                    <button id="prevYearBtn"><img src="./asssets/arrow-left.png"
+                                            alt="arrow-left"></button>
+                                    <select id="yearSelector"></select>
+                                    <button id="nextYearBtn"><img src="./asssets/arrow-right.png"
+                                            alt="arrow-right.png"></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="calendar-body"></div>
+                        <div class="button-container">
+                            <button id="clearBtn" class="button-calendar-clear">Clear</button>
+                            <button id="todayBtn" class="button-calendar-today">Today</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="custom-time-input from time-from">
+                    <input type="text" id="from_time" value="00:00">
+                    <select id="time_from_formate">
+                        <option value="AM">AM</option>
+                        <option value="PM">PM</option>
+                    </select>
+                    <img src="./asssets/icon-input.png" alt="icon-input"
+                        style="position: absolute; right:7px; top: 49%; transform: translateY(-50%);"
+                        id="input-time-from" class="icon-input">
+                    <!-- <div class="drop-time">
+                        <div id="from_hour-select" class="time-select">
+                        </div>
+                        <div id="from_minute-select" class="time-select">
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+            <label for="to">
+                <h2>Calculate to:</h2>
+            </label>
+            <div class="to">
+                <div class="custom-date-picker picker-date-to">
+                    <input type="text" id="to" placeholder="mm.dd.yyyy" readonly>
+                    <img src="./asssets/icon-input.png" alt="icon-input"
+                        style="position: absolute; right: 5px; top: 50%; transform: translateY(-50%);"
+                        id="input-date-to" class="icon-input">
+                    <div class="calendar">
+                        <div class="date-picker-header">
+                            <div class="month-year-display">
+                                <div class="month-selector">
+                                    <button id="prevMonthBtn"><img src="./asssets/arrow-left.png"
+                                            alt="arrow-left"></button>
+                                    <select id="monthSelector">
+                                        <option value="0">January</option>
+                                        <option value="1">February</option>
+                                        <option value="2">March</option>
+                                        <option value="3">April</option>
+                                        <option value="4">May</option>
+                                        <option value="5">June</option>
+                                        <option value="6">July</option>
+                                        <option value="7">August</option>
+                                        <option value="8">September</option>
+                                        <option value="9">October</option>
+                                        <option value="10">November</option>
+                                        <option value="11">December</option>
+                                    </select>
+                                    <button id="nextMonthBtn"><img src="./asssets/arrow-right.png"
+                                            alt="arrow-right.png"></button>
+                                </div>
+
+                                <div class="year-selector">
+                                    <button id="prevYearBtn"><img src="./asssets/arrow-left.png"
+                                            alt="arrow-left"></button>
+                                    <select id="yearSelector"></select>
+                                    <button id="nextYearBtn"><img src="./asssets/arrow-right.png"
+                                            alt="arrow-right.png"></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="calendar-body"></div>
+                        <hr>
+                        <div class="button-container">
+                            <button id="clearBtn">Clear</button>
+                            <button id="todayBtn">Today</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="custom-time-input to picker-time-to">
+                    <input type="text" id="to_time" value="00:00">
+                    <select id="time_to_formate">
+                        <option value="AM">AM</option>
+                        <option value="PM">PM</option>
+                    </select>
+                    <img src="./asssets/icon-input.png" alt="icon-input"
+                        style="position: absolute; right:7px; top: 49%; transform: translateY(-50%);" id="input-time-to"
+                        class="icon-input">
+                    <!-- <div class="drop-time">
+                        <div id="to_hour-select" class="time-select">
+                        </div>
+                        <div id="to_minute-select" class="time-select">
+                        </div>
+                    </div> -->
+                </div>
+
+            </div>
+            <button id="button_calculate" type="submit" class="calculate">
+                <div class="calculate">
+                    <img src="./asssets/icon_calculate.png" alt="icon_calculate">
+                    <h3>Calculate</h3>
+                </div>
+            </button>
+            <div id="tabs" class="tabs tabContainer">
+                <button id="textTab" class="tab active">
+                    <img src="./asssets/text.png" alt="text" class="inactive">
+                    <img src="./asssets/text-active.png" alt="text" class="active">
+                    <p>Text</p>
+                </button>
+                <button id="listTab" class="tab">
+                    <img src="./asssets/list.png" alt="list" class="inactive">
+                    <img src="./asssets/list-active.png" alt="list" class="active">
+                    <p>List</p>
+                </button>
+            </div>
+            <div id="textInput" class="tabContent">
+                <div class="blockContent">
+                    <div class="selectedRange">
+                        <span>You are free from</span>
+                        <p id="selectedTimeRange"></p>
+                    </div>
+                    <div>
+                        <img id="copyButton" src="./asssets/icon-copy.png" alt="icon-copy">
+                    </div>
+                </div>
+            </div>
+
+            <div id="listOutput" class="tabContent">
+                <div id="resultBlock" style="display: none;">
+                    <p id="timeDifference"></p>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="container" id="privacyPage" style="display: none;">
+        <div class="privacy">
+            <a href="#" id="backButton">&lt; Back</a>
+            <h3>Privacy Policy</h3>
+        </div>
+        <p>
+            Our extension CalSyncMaster uses and transfers to any other app of information received from Google APIs in
+            compliance with the Google API Services User Data Policy, including the Limited Use requirements.
+            This means that our extension has access to limited user data from the Google API, specifically Google
+            Calendar data, only after obtaining clear and express consent from the user. The data is handled in
+            accordance with Googles
+            Limited Use requirements.Any use of Google user data adheres to the following practices:
+        <ul>
+            <li>
+                <p>
+                    No Google user data is shared with others, except as necessary to provide and improve user features,
+                    comply
+                    with the law, or as part of a merger, acquisition, or sale of assets.
+                </p>
+            </li>
+            <li>
+                <p>
+                    We don't use or transfer data for serving ads, including retargeting, personalized, or
+                    interest-based
+                    advertising.
+                </p>
+            </li>
+            <li>
+                <p>
+                    We don't allow humans to read Google user data, unless we have the user's affirmative agreement, or
+                    it's
+                    necessary for security purposes (such as investigating a bug or abuse).
+                </p>
+            </li>
+            <li>
+                <p>
+                    We don't use Google user data to create or augment user profiles for any purposes unrelated to the
+                    apps
+                    services, including advertising or personalization purposes.
+                </p>
+            </li>
+        </ul>
+        For more information on Google's User Data Policy, please visit Google API Services User Data Policy.
+        </p>
+    </div>
+    <script src="popup.js"></script>
+    <script src="script.js"></script>
+    <script src="background.js"></script>
+</body>
+
+</html>

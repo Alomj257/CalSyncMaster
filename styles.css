@@ -1,0 +1,564 @@
+
+ body {
+     background-color: #f0f0f0;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     margin: 0;
+     border-radius: 24px;
+     font-family: 'Inter', sans-serif;
+
+     .container {
+         background-color: white;
+         padding: 32px;
+         border-radius: 10px;
+         box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+         width: 480px;
+
+         .header {
+             display: flex;
+             flex-direction: row-reverse;
+             justify-content: space-between;
+             align-items: center;
+             padding-bottom: 20px;
+
+             a {
+                 color: #00A97B;
+                 font-family: 'Poppins', sans-serif;
+                 font-weight: 400;
+                 font-size: 12px;
+                 line-height: 20px;
+             }
+
+             h1 {
+                 font-family: 'Inter', sans-serif;
+                 font-weight: 700;
+                 font-size: 20px;
+                 line-height: 24px;
+             }
+         }
+
+         .login {
+             h2 {
+                 display: flex;
+                 flex-direction: column;
+                 align-items: flex-start;
+             }
+
+             #login{
+                 padding: 12px 24px;
+                 border-radius: 24px;
+                 display: flex;
+                 align-items: center;
+                 justify-content: center;
+                 gap: 12px;
+
+                 h3 {
+                     font-family: 'Poppins', sans-serif;
+                     font-weight: 400;
+                     font-size: 16px;
+                     line-height: 24px;
+                 }
+             }
+             #logout {
+                width: 80%;
+                padding: 12px 24px;
+                border-radius: 24px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 12px;
+
+                h3 {
+                    font-family: 'Poppins', sans-serif;
+                    font-weight: 400;
+                    font-size: 16px;
+                    line-height: 24px;
+                }
+            }
+
+             .logo {
+                 color: black;
+             }
+         }
+
+         #loggedInOptions {
+            #logout {
+                padding: 12px 24px;
+                border-radius: 24px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 12px;
+
+                h3 {
+                    font-family: 'Poppins', sans-serif;
+                    font-weight: 400;
+                    font-size: 16px;
+                    line-height: 24px;
+                }
+            }
+
+            .logo {
+                color: black;
+            }
+         }
+
+         .from {
+             display: flex;
+             flex-direction: row;
+             justify-content: space-between;
+         }
+
+         .to {
+             display: flex;
+             flex-direction: row;
+             justify-content: space-between;
+         }
+     }
+
+     h1,
+     h2 {
+         color: #333;
+         margin: 0;
+     }
+
+     .calculate {
+         background-color: #00A97B;
+         color: white;
+         width: 100%;
+         font-size: 16px;
+         cursor: pointer;
+         border-radius: 24px;
+         border: 1px solid #00A97B;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         gap: 5px;
+
+         h3 {
+             margin: 0;
+         }
+     }
+
+     button {
+         background-color: white;
+         color: black;
+         padding: 15px 32px;
+         text-align: center;
+         text-decoration: none;
+         display: block;
+         width: 100%;
+         font-size: 16px;
+         margin: 10px 0;
+         cursor: pointer;
+         border: none;
+         border: 1px solid #00A97B;
+     }
+     .logout-button {
+        display: flex;
+        border: none;
+        background-color: white;
+        width: 20%;
+        color: black;
+        font-size: 24px;
+        font-weight: 700;
+        padding: 15px 32px;
+        text-align: center;
+        font-size: 16px;
+        margin: 10px;
+        margin-left: 50%;
+        cursor: pointer;
+    }
+    
+
+     input[type="text"] {
+         display: block;
+         width: 200px;
+         padding: 10px;
+         margin: 10px 0;
+         border-radius: 5px;
+         border: 1px solid #ADE2D4;
+         color: #333;
+     }
+
+     .icon-input:hover {
+         content: url('./asssets/hover-icon-calendar.png');
+     }
+
+     input[type="text"]:focus {
+         outline: none;
+         border-color: #ADE2D4;
+         background-color: #fff;
+     }
+
+     input[type="time"] {
+         display: block;
+         width: 200px;
+         padding: 10px;
+         margin: 10px 0;
+         border-radius: 5px;
+         border: 1px solid #ADE2D4;
+     }
+
+     #calculateForm input[disabled] {
+         border-color: #1D2926;
+         color: #1D2926;
+     }
+
+     #resultBlock {
+         display: none;
+     }
+
+     #resultBlock h3 {
+         margin-top: 0;
+         order: 1;
+     }
+
+     #resultBlock p {
+         margin-bottom: 0;
+         order: 2;
+     }
+
+     #calculateForm input[type="text"].prevent-style-change,
+     #calculateForm input[type="time"].prevent-style-change {
+         border-color: #ADE2D4 !important;
+     }
+ }
+
+ .flex-content {
+     display: flex;
+     justify-content: space-between;
+     gap: 20px;
+     background-color: #E0F8F1;
+     margin: 12px;
+     padding: 12px;
+     border-radius: 8px
+ }
+
+ .tabs {
+     overflow: hidden;
+     display: flex;
+ }
+
+ .tab {
+     color: black;
+     float: left;
+     border: none;
+     outline: none;
+     cursor: pointer;
+     width: 20%;
+     margin: 0;
+     padding: 0;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     height: 50px;
+ }
+
+ .tab.active {
+     border-bottom: 1px solid #00A97B;
+     color: #00A97B;
+ }
+
+ .tabContainer {
+     display: none;
+ }
+
+ .tabContainer.showTabs {
+     display: flex;
+     padding-bottom: 16px;
+ }
+
+ #textInput {
+     display: none;
+     background-color: #E0F8F1;
+     padding: 12px 16px;
+ }
+
+ #text {
+     display: block;
+
+ }
+
+ .tab:not(.active) .active {
+     display: none;
+ }
+
+ .tab.active .inactive {
+     display: none;
+ }
+
+ .privacy {
+     display: flex;
+     flex-direction: column;
+     align-items: flex-start;
+
+     a {
+         text-decoration: none;
+         color: #00A97B;
+     }
+
+     h3 {
+         font-family: 'Inter', sans-serif;
+         font-weight: 700;
+         font-size: 16px;
+         line-height: 20px;
+     }
+
+     p {
+         color: #45504D;
+         font-family: 'Inter', sans-serif;
+         font-weight: 400;
+         font-size: 16px;
+         line-height: 24px;
+     }
+ }
+
+ .blockContent {
+     display: flex;
+     justify-content: space-between;
+
+     .selectedRange {
+         display: flex;
+         align-items: flex-start;
+         gap: 4px;
+         width: 100%;
+
+         span {
+             width: 50%;
+             padding-top: 10px;
+         }
+
+         p {
+             width: 100%;
+         }
+     }
+ }
+
+ .custom-date-picker {
+     position: relative;
+     display: flex;
+     flex-direction: column;
+ }
+
+ .custom-date-picker:hover .icon-input {
+     content: url('./asssets/hover-icon-calendar.png');
+ }
+
+ .date-picker-header {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     margin-bottom: 10px;
+ }
+
+ .month-selector,
+ .year-selector {
+     display: flex;
+     align-items: center;
+ }
+
+ .month-selector select,
+ .year-selector select {
+     border: none;
+     outline: none;
+ }
+
+ .date-picker-header button {
+     background-color: transparent;
+     border: none;
+     cursor: pointer;
+     font-size: 16px;
+     margin: 0;
+     padding: 0;
+ }
+
+ .month-year-display {
+     display: flex;
+     flex-direction: row;
+     width: 100%;
+     justify-content: space-between;
+ }
+
+ .calendar {
+     position: absolute;
+     top: 85%;
+     left: 0;
+     background-color: white;
+     border: 1px solid #ADE2D4;
+     border-radius: 8px;
+     padding: 12px 12px 0 12px;
+     display: none;
+     z-index: 999;
+     width: 89%;
+ }
+
+ .calendar.visible {
+     display: block;
+ }
+
+ .calendar-body {
+     margin-top: 10px;
+ }
+
+ .calendar table {
+     width: 100%;
+     border-collapse: collapse;
+     border: none;
+ }
+
+ .calendar th,
+ .calendar td {
+     text-align: center;
+     border: none;
+ }
+
+ tbody {
+     border-bottom: 1px solid #00A97B;
+ }
+
+ .calendar th {
+     background-color: white;
+     color: #1D2926;
+     font-family: 'Inter', sans-serif;
+     font-weight: 500;
+     font-size: 14px;
+     line-height: 20px;
+ }
+
+ .calendar td {
+     background-color: white;
+     color: #1D2926;
+     font-family: 'Inter', sans-serif;
+     font-weight: 500;
+     font-size: 16px;
+     line-height: 24px;
+ }
+
+ .calendar td:hover {
+     background-color: #00A97B;
+     border-radius: 50%;
+     margin: 0;
+     padding: 0;
+ }
+
+ #monthSelector {
+     color: #1D2926;
+     font-family: 'Inter', sans-serif;
+     font-weight: 500;
+     font-size: 14px;
+     line-height: 20px;
+     letter-spacing: 0.1px;
+
+ }
+
+ .button-container {
+     display: flex;
+     padding: 12px 0 12px 0;
+
+     .button-calendar-clear {
+         border: none;
+         color: #FF6E6E;
+         margin: 0;
+         padding: 0;
+     }
+
+     .button-calendar-today {
+         border: none;
+         color: #00A97B;
+         margin: 0;
+         padding: 0;
+     }
+ }
+
+ .custom-time-input {
+     position: relative;
+ }
+
+ .custom-time-input:hover .icon-input {
+     content: url('./asssets/hover-icon-calendar.png');
+ }
+
+ .custom-time-input .selected {
+     background: #cccccc;
+ }
+
+ .custom-time-input.to .time-select {
+     display: none;
+     position: relative;
+     top: 100%;
+     left: 0;
+     background: white;
+     border: 1px solid #ccc;
+     max-height: 150px;
+     overflow-y: auto;
+     border: 1px solid #ADE2D4;
+     width: 90px;
+     padding: 12px 8px;
+     border-radius: 8px;
+ }
+ .custom-time-input #time_from_formate,.custom-time-input #time_to_formate{
+    position: absolute;
+    right: 3rem;
+    bottom: 1.1rem;
+    border: 0;
+    outline: none;
+}
+ .time-select span.selected,
+ .time-select span:hover {
+     background-color: #ADE2D4;
+     cursor: pointer;
+ }
+
+ .custom-time-input.from .time-select {
+     display: none;
+     position: relative;
+     top: 100%;
+     left: 0;
+     background: white;
+     border: 1px solid #ccc;
+     max-height: 150px;
+     overflow-y: auto;
+     border: 1px solid #ADE2D4;
+     width: 90px;
+     padding: 12px 8px;
+     border-radius: 8px;
+ }
+
+ .drop-time {
+     display: flex;
+     justify-content: flex-start;
+     gap: 5px;
+     position: absolute;
+     top: 50px;
+     z-index: 1;
+ }
+
+ .custom-time-input .time-select span {
+     display: block;
+     margin: 0 auto;
+     cursor: pointer;
+     text-align: center;
+     padding: 3px 0;
+     border-radius: 4px;
+ }
+
+ .custom-time-input.open .time-select {
+     display: block;
+ }
+
+ .icon-input {
+     position: absolute;
+     right: 0;
+     top: 50%;
+     transform: translate(-50%, -50%);
+ }
+
+ #copyButton:hover {
+     content: url('./asssets/icon-copy-hover.png');
+ }
+
+ .empty-cell {
+     pointer-events: none;
+ }
