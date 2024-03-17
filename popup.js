@@ -422,7 +422,17 @@ const fetchCalendarEvents = async (startTime, endTime) => {
       }
 
       const data = await response.json();
-      return data.items || [];
+      const events = data.items || [];
+
+      const recurringEvents = events.filter(event => event.recurrence);
+
+      for (const event of recurringEvents) {
+        const expandedEvents = await expandRecurringEvent(event, startTime, endTime);
+        events.push(...expandedEvents);
+      }
+
+      console.log("Events:", events);
+      return events;
     });
 
     // Wait for all fetch operations to complete and merge the results
@@ -460,6 +470,39 @@ async function findCalendarIds(accessToken) {
     console.error("Error fetching calendar list:", error);
   }
 }
+
+const expandRecurringEvent = async (event, startTime, endTime) => {
+  try {
+    const recurrenceRule = event.recurrence[0]; // Assuming only one recurrence rule
+    const apiUrl = `https://content.googleapis.com/calendar/v3/calendars/${encodeURIComponent(
+      event.organizer.email
+    )}/events/${event.id}/instances?timeMin=${startTime.toISOString()}&timeMax=${endTime.toISOString()}&timeZone=UTC`;
+
+    console.log("Expanding recurring event:", apiUrl);
+
+    const headers = {
+      Authorization: `Bearer ${accessToken}`,
+      Accept: "application/json",
+    };
+
+    const response = await fetch(apiUrl, { headers });
+
+    if (!response.ok) {
+      const errorData = await response.json();
+      console.error("Error expanding recurring event:", errorData);
+      return [];
+    }
+
+    const data = await response.json();
+    const expandedEvents = data.items || [];
+
+    console.log("Expanded events:", expandedEvents);
+    return expandedEvents;
+  } catch (error) {
+    console.error("Error expanding recurring event:", error);
+    return [];
+  }
+};
 
 // function analyzeAvailability(events, startTime, endTime) {
 //   events.sort(
